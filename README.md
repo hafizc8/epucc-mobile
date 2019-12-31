@@ -1,4 +1,4 @@
-# epucc
+# E-PUCC Mobile
 
 Sebuah projek pengabdian kepada UKM berbasis mobile menggunakan flutter framework.
 
