@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:epucc/siswaModel.dart';
+import 'package:epucc/model/siswaModel.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -51,21 +51,26 @@ class _ShowDataSiswaState extends State<ShowDataSiswa> {
         backgroundColor: Colors.indigo,
         title: Text("Data Siswa"),
       ),
-      body: (dataSiswa == null) ? Center(child: CircularProgressIndicator()) : DataTable(
-        columnSpacing: 20.0,
-        columns: [
-          DataColumn(label: Text("NIM")),
-          DataColumn(label: Text("Nama")),
-        ],
-        rows: 
-          dataSiswa.dataSiswa.map((dsw) => 
-            DataRow(
-              cells: [
-                DataCell(Text(dsw.nim)),
-                DataCell(Text(dsw.jurusan)),
-              ]
-            )
-          ).toList(),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: (dataSiswa == null) ? Center(child: CircularProgressIndicator()) : DataTable(
+            columns: [
+              DataColumn(label: Text("NIM")),
+              DataColumn(label: Text("Nama")),
+            ],
+            rows: 
+              dataSiswa.dataSiswa.map((dsw) => 
+                DataRow(
+                  cells: [
+                    DataCell(Text(dsw.nim)),
+                    DataCell(Text(dsw.jurusan)),
+                  ]
+                )
+              ).toList(),
+          ),
+        ),
       ),
     );
   }
